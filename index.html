@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óptica Lumen Escobedo | Examen de la Vista Gratuito</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1e3a5f;
+            --navy-light: #2c5282;
+            --navy-dark: #0f172a;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --accent: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--navy);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--navy);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            background: var(--navy);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .cta-nav:hover {
+            background: var(--navy-light);
+            transform: translateY(-1px);
+        }
+
+        .cta-nav::after {
+            display: none !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(30, 58, 95, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--navy-dark);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-content h1 span {
+            color: var(--navy);
+            position: relative;
+        }
+
+        .hero-content h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(59, 130, 246, 0.2);
+            z-index: -1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--gray-800);
+            font-size: 1rem;
+        }
+
+        .benefit-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--navy);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(30, 58, 95, 0.1);
+        }
+
+        .cta-primary:hover {
+            background: var(--navy-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(30, 58, 95, 0.2);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: 40px;
+            left: -40px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            max-width: 280px;
+            border-left: 4px solid var(--navy);
+        }
+
+        .floating-card h4 {
+            color: var(--navy);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-tag::before,
+        .section-tag::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 1px;
+            background: var(--navy);
+        }
+
+        .section-tag::before {
+            right: calc(100% + 15px);
+        }
+
+        .section-tag::after {
+            left: calc(100% + 15px);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--navy-dark);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .section-subtitle {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--gray-50);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--navy);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gray-200);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            color: var(--navy);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: var(--navy-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Frames Catalog Section */
+        .frames {
+            padding: 6rem 0;
+            background: var(--gray-50);
+        }
+
+        .frames-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .frame-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .frame-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .frame-image {
+            width: 100%;
+            height: 250px;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .frame-image img {
+            width: 80%;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .frame-card:hover .frame-image img {
+            transform: scale(1.05);
+        }
+
+        .frame-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--navy);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .frame-info {
+            padding: 1.5rem;
+        }
+
+        .frame-brand {
+            color: var(--gray-600);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+
+        .frame-name {
+            color: var(--navy-dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .frame-price {
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .view-all-btn {
+            display: block;
+            width: fit-content;
+            margin: 3rem auto 0;
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--navy);
+            color: var(--navy);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .view-all-btn:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        /* Appointment Section */
+        .appointment {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .appointment::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .appointment-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .appointment .section-header {
+            color: white;
+        }
+
+        .appointment .section-title {
+            color: white;
+        }
+
+        .appointment .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .appointment-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group select option {
+            background: var(--navy-dark);
+            color: white;
+        }
+
+        .submit-btn {
+            grid-column: 1 / -1;
+            background: white;
+            color: var(--navy);
+            padding: 1.25rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Trust Indicators */
+        .trust-section {
+            padding: 4rem 0;
+            background: white;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .trust-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .trust-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            display: block;
+            line-height: 1;
+        }
+
+        .trust-label {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-column h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--navy-light);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-benefits {
+                align-items: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image img {
+                height: 400px;
+            }
+
+            .floating-card {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .frames-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .frames-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-grid {
+                flex-direction: column;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">◉</div>
+                Óptica Lumen
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#armazones">Armazones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#agendar" class="cta-nav">Agendar Examen</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Tu salud visual es nuestra <span>prioridad</span></h1>
+                <p class="hero-subtitle">
+                    En Óptica Lumen Escobedo combinamos tecnología de precisión con atención humana. 
+                    Agenda hoy tu examen de la vista completamente gratuito y descubre el mundo con claridad.
+                </p>
+                
+                <div class="hero-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <span>Examen optométrico completo sin costo</span>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <span>Equipamiento tecnológico de última generación</span>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <span>Optometristas certificados con 15+ años de experiencia</span>
+                    </div>
+                </div>
+
+                <a href="#agendar" class="cta-primary">
+                    Agendar Examen Gratuito
+                    <span>→</span>
+                </a>
+            </div>
+
+            <div class="hero-image">
+                <img src="https://images.pexels.com/photos/29467509/pexels-photo-29467509/free-photo-of-stylish-eyewear-display-with-minimalist-aesthetic.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=800" alt="Examen de la vista profesional">
+                <div class="floating-card">
+                    <h4>Atención Personalizada</h4>
+                    <p>Cada paciente recibe un estudio completo de su salud visual y recomendaciones específicas para su estilo de vida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <span class="trust-number">15+</span>
+                    <div class="trust-label">Años de experiencia</div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">10k+</span>
+                    <div class="trust-label">Pacientes satisfechos</div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">50+</span>
+                    <div class="trust-label">Marcas de armazones</div>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">100%</span>
+                    <div class="trust-label">Garantía de satisfacción</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nuestros Servicios</span>
+                <h2 class="section-title">Cuidado integral para tus ojos</h2>
+                <p class="section-subtitle">
+                    Ofrecemos soluciones ópticas completas, desde la evaluación de tu salud visual hasta el ajuste perfecto de tus lentes.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">👁</div>
+                    <h3>Graduación Ocular</h3>
+                    <p>Examen optométrico completo utilizando equipos computarizados de última generación. Evaluamos agudeza visual, refracción, salud ocular y presión intraocular.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">👓</div>
+                    <h3>Lentes de Contacto</h3>
+                    <p>Especialistas en adaptación de lentes de contacto. Ofrecemos opciones de hidrogel, silicona hidrogel y tóricos para astigmatismo con seguimiento personalizado.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Reparación y Ajuste</h3>
+                    <p>Servicio técnico especializado en reparación de armazones, cambio de plaquetas, ajuste de varillas y mantenimiento preventivo de tus lentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frames Catalog Section -->
+    <section class="frames" id="armazones">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Catálogo</span>
+                <h2 class="section-title">Armazones destacados</h2>
+                <p class="section-subtitle">
+                    Selección curada de las mejores marcas internacionales. Diseños que combinan estética, durabilidad y confort.
+                </p>
+            </div>
+
+            <div class="frames-grid">
+                <div class="frame-card">
+                    <div class="frame-image">
+                        <span class="frame-badge">Nuevo</span>
+                        <img src="https://images.pexels.com/photos/28881363/pexels-photo-28881363/free-photo-of-stylish-eyeglasses-on-minimalist-beige-background.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400" alt="Armazón Clásico">
+                    </div>
+                    <div class="frame-info">
+                        <div class="frame-brand">Ray-Ban</div>
+                        <div class="frame-name">Round Metal Classic</div>
+                        <div class="frame-price">$2,450 MXN</div>
+                    </div>
+                </div>
+
+                <div class="frame-card">
+                    <div class="frame-image">
+                        <img src="https://images.pexels.com/photos/29467509/pexels-photo-29467509/free-photo-of-stylish-eyewear-display-with-minimalist-aesthetic.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400" alt="Armazón Moderno">
+                    </div>
+                    <div class="frame-info">
+                        <div class="frame-brand">Oakley</div>
+                        <div class="frame-name">Holbrook XL</div>
+                        <div class="frame-price">$3,200 MXN</div>
+                    </div>
+                </div>
+
+                <div class="frame-card">
+                    <div class="frame-image">
+                        <span class="frame-badge">Oferta</span>
+                        <img src="https://images.pexels.com/photos/28881363/pexels-photo-28881363/free-photo-of-stylish-eyeglasses-on-minimalist-beige-background.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400" alt="Armazón Elegante">
+                    </div>
+                    <div class="frame-info">
+                        <div class="frame-brand">Vogue</div>
+                        <div class="frame-name">VOGUE 5356</div>
+                        <div class="frame-price">$1,890 MXN</div>
+                    </div>
+                </div>
+
+                <div class="frame-card">
+                    <div class="frame-image">
+                        <img src="https://images.pexels.com/photos/29467509/pexels-photo-29467509/free-photo-of-stylish-eyewear-display-with-minimalist-aesthetic.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400" alt="Armazón Premium">
+                    </div>
+                    <div class="frame-info">
+                        <div class="frame-brand">Tom Ford</div>
+                        <div class="frame-name">FT5681-B</div>
+                        <div class="frame-price">$5,600 MXN</div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="view-all-btn">Ver catálogo completo</a>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="appointment" id="agendar">
+        <div class="appointment-container">
+            <div class="section-header">
+                <span class="section-tag" style="color: white;">Reserva tu cita</span>
+                <h2 class="section-title">Agenda tu examen gratuito</h2>
+                <p class="section-subtitle">
+                    Completa el formulario y nuestro equipo se pondrá en contacto contigo para confirmar tu cita en menos de 24 horas.
+                </p>
+            </div>
+
+            <form class="appointment-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo *</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej. María González" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="(81) 1234 5678" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="maria@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha">Fecha preferida *</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horario">Horario preferido *</label>
+                        <select id="horario" name="horario" required>
+                            <option value="">Selecciona un horario</option>
+                            <option value="morning">09:00 - 12:00 hrs</option>
+                            <option value="afternoon">12:00 - 15:00 hrs</option>
+                            <option value="evening">15:00 - 19:00 hrs</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivo">Motivo de consulta</label>
+                        <select id="motivo" name="motivo">
+                            <option value="">Selecciona una opción</option>
+                            <option value="primera">Primera vez / Revisión general</option>
+                            <option value="cambio">Cambio de fórmula</option>
+                            <option value="dolor">Dolor o molestia ocular</option>
+                            <option value="lentes">Adaptación de lentes de contacto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="mensaje">Mensaje adicional (opcional)</label>
+                        <textarea id="mensaje" name="mensaje" rows="3" placeholder="¿Hay algo específico que debamos saber sobre tu salud visual?"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Confirmar mi cita gratuita
+                    </button>
+                </div>
+
+                <div class="form-note">
+                    <span>🔒</span>
+                    <span>Tus datos están protegidos. Solo los utilizamos para contactarte sobre tu cita.</span>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">◉</div>
+                        Óptica Lumen
+                    </a>
+                    <p>
+                        Comprometidos con la salud visual de la comunidad de Escobedo y zona metropolitana de Monterrey. 
+                        Tecnología de precisión, atención humana.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#armazones">Armazones</a></li>
+                        <li><a href="#agendar">Agendar cita</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Examen de la vista</a></li>
+                        <li><a href="#">Graduación de lentes</a></li>
+                        <li><a href="#">Lentes de contacto</a></li>
+                        <li><a href="#">Reparaciones</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="#">Av. Miguel Alemán #123<br>Centro, Escobedo, NL</a></li>
+                        <li><a href="tel:+528112345678">(81) 1234 5678</a></li>
+                        <li><a href="mailto:info@opticalumen.com">info@opticalumen.com</a></li>
+                        <li><a href="#">Lun-Vie: 9:00 - 19:00<br>Sáb: 9:00 - 14:00</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Óptica Lumen Escobedo. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="WhatsApp">📱</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('.appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Create success message
+            const btn = this.querySelector('.submit-btn');
+            const originalText = btn.textContent;
+            
+            btn.textContent = '✓ Cita agendada correctamente';
+            btn.style.background = '#10b981';
+            btn.style.color = 'white';
+            
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+                btn.style.color = '';
+                this.reset();
+            }, 3000);
+        });
+
+        // Set minimum date to today
+        const dateInput = document.getElementById('fecha');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    </script>
+
+</body>
+</html>
